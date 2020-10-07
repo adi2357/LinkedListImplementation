@@ -161,6 +161,26 @@ public class MyLinkedListTest {
 		boolean result = myLinkedList.getHead().equals(firstNode) && myLinkedList.getHead().getNext().equals(secondNode)
 				&& myLinkedList.getTail().equals(fourthdNode);
 		myLinkedList.printMyList();
-		Assert.assertTrue(true);
+		Assert.assertTrue(result);
+	}
+	
+	@Test
+	public void given3NumberWhenAddingElementInOrderShouldPassLinkedListTest() {
+		MyNode<Integer> firstNode = new MyNode(56);
+		MyNode<Integer> secondNode = new MyNode(30);
+		MyNode<Integer> thirdNode = new MyNode(40);
+		MyNode<Integer> fourthdNode = new MyNode(70);
+
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.addOrdered(firstNode);
+		myLinkedList.addOrdered(secondNode);
+		myLinkedList.addOrdered(thirdNode);
+		myLinkedList.addOrdered(fourthdNode);
+
+		boolean result = myLinkedList.getHead().equals(secondNode) && myLinkedList.getHead().getNext().equals(thirdNode)
+				&& myLinkedList.getHead().getNext().getNext().equals(firstNode)
+				&& myLinkedList.getTail().equals(fourthdNode);
+		myLinkedList.printMyList();
+		Assert.assertTrue(result);
 	}
 }
