@@ -3,7 +3,6 @@ package com.bridgelabz.linkedlistimplementation;
 public class MyLinkedList<K> {
 	private AllNode head;
 	private AllNode tail;
-	private static AllNode tempNode;
 
 	public AllNode getHead() {
 		return head;
@@ -11,10 +10,6 @@ public class MyLinkedList<K> {
 
 	public AllNode getTail() {
 		return tail;
-	}
-
-	public static AllNode getTempNode() {
-		return tempNode;
 	}
 
 	public MyLinkedList() {
@@ -28,7 +23,7 @@ public class MyLinkedList<K> {
 		if (head == null)
 			this.head = newNode;
 		else {
-			tempNode = this.head;
+			AllNode tempNode = this.head;
 			this.head = newNode;
 			newNode.setNext(tempNode);
 		}
@@ -49,10 +44,9 @@ public class MyLinkedList<K> {
 		System.out.print("My List is : ");
 		StringBuffer myList = new StringBuffer();
 		AllNode tempNode = head;
-		while (tempNode.getNext() != null) {
+		while (!tempNode.equals(tail)) {
 			myList.append(tempNode.getKey());
-			if (!tempNode.equals(tail))
-				myList.append("->");
+			myList.append("->");
 			tempNode = tempNode.getNext();
 		}
 		myList.append(tempNode.getKey());
@@ -68,6 +62,17 @@ public class MyLinkedList<K> {
 	public AllNode deleteFirst() {
 		AllNode tempNode = this.head;
 		this.head = head.getNext();
+		System.out.println("Deleted element is :" + tempNode.getKey());
+		return tempNode;
+	}
+
+	public AllNode deleteLast() {
+		AllNode tempNode = head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
 		System.out.println("Deleted element is :" + tempNode.getKey());
 		return tempNode;
 	}
