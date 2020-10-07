@@ -29,7 +29,8 @@ public class MyLinkedListTest {
 		myLinkedList.add(firstNode);
 		myLinkedList.add(secondNode);
 		myLinkedList.add(thirdNode);
-
+		
+		myLinkedList.printMyList();
 		boolean result = myLinkedList.getHead().equals(thirdNode) && myLinkedList.getHead().getNext().equals(secondNode)
 				&& myLinkedList.getTail().equals(firstNode);
 		Assert.assertTrue(result);

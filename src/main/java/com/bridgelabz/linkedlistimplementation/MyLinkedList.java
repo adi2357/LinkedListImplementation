@@ -33,7 +33,19 @@ public class MyLinkedList<K> {
 			newNode.setNext(tempNode);
 		}
 	}
-
 	
+	public void printMyList() {
+		System.out.println("My List is :");
+		StringBuffer myNodes = new StringBuffer();
+		tempNode = head;
+		while (tempNode.getNext() != null) {
+			myNodes.append(tempNode.getKey());
+			if (!tempNode.equals(tail))
+				myNodes.append("->");
+			tempNode = tempNode.getNext();
+		}
+		myNodes.append(tempNode.getKey());
+		System.out.println(myNodes);
+	}
 
 }
