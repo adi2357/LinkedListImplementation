@@ -59,4 +59,9 @@ public class MyLinkedList<K> {
 		System.out.println(myNodes);
 	}
 
+	public void insert(AllNode myNode, AllNode newNode) {
+		tempNode=myNode.getNext();
+		myNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
 }
