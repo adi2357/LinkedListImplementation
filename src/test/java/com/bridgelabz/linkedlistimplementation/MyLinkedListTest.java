@@ -29,13 +29,13 @@ public class MyLinkedListTest {
 		myLinkedList.add(firstNode);
 		myLinkedList.add(secondNode);
 		myLinkedList.add(thirdNode);
-		
+
 		myLinkedList.printMyList();
 		boolean result = myLinkedList.getHead().equals(thirdNode) && myLinkedList.getHead().getNext().equals(secondNode)
 				&& myLinkedList.getTail().equals(firstNode);
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test
 	public void given3NumberWhenAppendedToLinkedShouldBeAddedToBottom() {
 		MyNode<Integer> firstNode = new MyNode(56);
@@ -46,13 +46,13 @@ public class MyLinkedListTest {
 		myLinkedList.append(firstNode);
 		myLinkedList.append(secondNode);
 		myLinkedList.append(thirdNode);
-		
+
 		myLinkedList.printMyList();
 		boolean result = myLinkedList.getHead().equals(firstNode) && myLinkedList.getHead().getNext().equals(secondNode)
 				&& myLinkedList.getTail().equals(thirdNode);
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test
 	public void given3NumberWhenInseringInBetweenShouldPassLinkedListTest() {
 		MyNode<Integer> firstNode = new MyNode(56);
@@ -62,13 +62,29 @@ public class MyLinkedListTest {
 		MyLinkedList myLinkedList = new MyLinkedList();
 		myLinkedList.append(firstNode);
 		myLinkedList.append(thirdNode);
-		
-		myLinkedList.insert(firstNode,secondNode);
-		
+
+		myLinkedList.insert(firstNode, secondNode);
+
 		myLinkedList.printMyList();
 		boolean result = myLinkedList.getHead().equals(firstNode) && myLinkedList.getHead().getNext().equals(secondNode)
 				&& myLinkedList.getTail().equals(thirdNode);
 		Assert.assertTrue(result);
 	}
 
+	@Test
+	public void given3NumberWhenDeletedFirstElementShouldReturnFirstElement() {
+		MyNode<Integer> firstNode = new MyNode(56);
+		MyNode<Integer> secondNode = new MyNode(30);
+		MyNode<Integer> thirdNode = new MyNode(70);
+
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.append(firstNode);
+		myLinkedList.append(secondNode);
+		myLinkedList.append(thirdNode);
+
+		AllNode deletedNode = myLinkedList.deleteFirst();
+		System.out.print("After deleting first element, ");
+		myLinkedList.printMyList();
+		Assert.assertEquals(firstNode, deletedNode);
+	}
 }
