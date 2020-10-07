@@ -104,4 +104,21 @@ public class MyLinkedListTest {
 		myLinkedList.printMyList();
 		Assert.assertEquals(thirdNode, deletedNode);
 	}
+
+	@Test
+	public void given3NumberWhenSearchForAnElementShouldReturnElement() {
+		MyNode<Integer> firstNode = new MyNode(56);
+		MyNode<Integer> secondNode = new MyNode(30);
+		MyNode<Integer> thirdNode = new MyNode(70);
+
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.append(firstNode);
+		myLinkedList.append(secondNode);
+		myLinkedList.append(thirdNode);
+
+		AllNode searchedNode = myLinkedList.search(secondNode.getKey());
+		System.out.println("Searched key : " + searchedNode.getKey());
+		myLinkedList.printMyList();
+		Assert.assertEquals(secondNode, searchedNode);
+	}
 }
