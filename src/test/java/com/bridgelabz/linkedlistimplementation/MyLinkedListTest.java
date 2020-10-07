@@ -161,6 +161,6 @@ public class MyLinkedListTest {
 		boolean result = myLinkedList.getHead().equals(firstNode) && myLinkedList.getHead().getNext().equals(secondNode)
 				&& myLinkedList.getTail().equals(fourthdNode);
 		myLinkedList.printMyList();
-		Assert.assertTrue(true);
+		Assert.assertTrue(result);
 	}
 }
